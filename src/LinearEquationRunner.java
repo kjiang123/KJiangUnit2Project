@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class LinearEquationRunner {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
+        String slope;
 
         System.out.print("Enter a coordinate point: ");
         String point1 = scan.nextLine();
@@ -17,18 +18,20 @@ public class LinearEquationRunner {
         String point2 = scan.nextLine();
         int comma2 = point2.indexOf(",");
 
-        String sX2 = point2.substring(1,comma1);
+        String sX2 = point2.substring(1,comma2);
         int x2 = Integer.parseInt(sX2);
-        String sY2 = point2.substring(comma1+2, point2.length()-1);
+        String sY2 = point2.substring(comma2+2, point2.length()-1);
         int y2 = Integer.parseInt(sY2);
 
         LinearEquation lin = new LinearEquation(x1, y1, x2, y2);
 
-        if ((double)(y2-y1)/(x2-x1)%1 != 1){
-            System.out.println(lin.calcSlopeFraction());
+        if ((double)(y2-y1)/(x2-x1) != (y2-y1)/(x2-x1)){
+            slope = lin.calcSlopeFraction();
         }else{
-            System.out.println(lin.calcSlopeInt());
+            slope = String.valueOf(lin.calcSlopeInt());
         }
-
+        Double yIntercept = lin.yIntercept(slope);
+        System.out.println(lin.slopeInterceptForm(slope, yIntercept));
+        //System.out.println(lin.distance());
     }
 }
