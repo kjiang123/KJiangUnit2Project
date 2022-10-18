@@ -22,5 +22,13 @@ public class LinearEquationRunner {
         String sY2 = point2.substring(comma1+2, point2.length()-1);
         int y2 = Integer.parseInt(sY2);
 
+        LinearEquation lin = new LinearEquation(x1, y1, x2, y2);
+
+        if ((double)(y2-y1)/(x2-x1)%1 != 1){
+            System.out.println(lin.calcSlopeFraction());
+        }else{
+            System.out.println(lin.calcSlopeInt());
+        }
+
     }
 }

@@ -11,9 +11,10 @@ public class LinearEquation {
         this.y2=y2;
     }
 
-    public String calcSlope(){
-        if ((y2-y1)/(x2-x1) == ){
-            return y2-y1+"/"+x2-x1;
-        }else
+    public String calcSlopeFraction(){
+        return (y2-y1)+"/"+(x2-x1);
+    }
+    public int calcSlopeInt(){
+        return (y2-y1)/(x2-x1);
     }
 }
